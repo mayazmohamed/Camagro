@@ -78,17 +78,7 @@ $notifications = [
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-    <style>
-        .debug {
-            border: 1px solid red;
-        }
-        .debug > * {
-            border: 1px solid blue;
-        }
-        .debug > * > * {
-            border: 1px solid green;
-        }
-    </style>
+    <link rel="stylesheet" href="public/css/index.css">
 
     <script>
         function toggleMenu() {
