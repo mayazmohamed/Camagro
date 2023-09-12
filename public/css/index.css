@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .debug {
     border: 1px solid red;
 }
@@ -6,4 +10,51 @@
 }
 .debug > * > * {
     border: 1px solid green;
+}
+
+.title {
+    color: #EB608F;
+}
+body {
+    background-color: #1F2122;
+}
+
+
+a:active{
+    text-decoration: none;
+    color: #fff;
+}
+a{
+    text-decoration: none;
+    color: #666666;
+}
+
+.notif{
+    background-color: #26292A;
+    border: 2px solid #26292A;
+    border-radius:  30px;
+    
+}
+
+.notif h1 {
+    color: #fff;
+    font-style: normal;
+    text-decoration: underline;
+
+}
+
+.profile {
+    background-color: #26292A;
+    border: 2px solid #26292A;
+    border-radius:  30px;
+}
+
+.post{
+    background-color: #26292A;
+    border: 2px solid #26292A;
+    border-radius:  30px;
+}
+
+.like {
+    color: #EB608F;
 }
