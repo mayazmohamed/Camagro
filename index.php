@@ -107,9 +107,15 @@ $notifications = [
             </svg>
         </button>
         <div id="menu" class="hidden lg:block space-x-4">
-            <a href="#" class=" !hover:text-[#EB608F]">Settings</a>
-            <a href="#" class="">New Post</a>
-            <a href="#" class="">Logout</a>
+            <?php if($userProfile['username']){
+                echo "<a href=\"app/views/settings.php\" class=\"\">Settings</a>";
+               echo "<a href=\"app/views/createPost.php\" class=\"\">New Post</a>";
+            echo "<a href=\"#\" class=\"\">Logout</a>";
+            }
+            else{
+            echo "<a href=\"#\" class=\"\">Login/sign in</a>";
+            }
+            ?>
         </div>
     </div>
 </nav>
@@ -120,33 +126,36 @@ $notifications = [
         <!-- Left Sidebar -->
         <div class="w-full lg:w-1/4 lg:mr-4">
             <!-- User Profile -->
-            <div class="bg-[#26292A] p-4 mb-4 profile">
-                <img src="https://via.placeholder.com/150" alt="User Profile" class="w-16 h-16 rounded-full mx-auto mb-2">
-                <p class="text-center text-white text-2xl underline font-semibold"><?php echo $userProfile['fullName']; ?></p>
-                <p class="text-center text-[#EB608F]"><?php echo $userProfile['bio']; ?></p>
-            </div>
+            <?php if ($userProfile['username']): ?>
+                <div class="bg-[#26292A] p-4 mb-4 profile">
+                    <img src="https://via.placeholder.com/150" alt="User Profile" class="w-16 h-16 rounded-full mx-auto mb-2">
+                    <p class="text-center text-white text-2xl underline font-semibold"><?php echo $userProfile['fullName']; ?></p>
+                    <p class="text-center text-[#EB608F]"><?php echo $userProfile['bio']; ?></p>
+                </div>
 
-            <!-- Notification Links -->
-            <div class=" p-4 my-2 notif">
-                <h1 class="text-white text-2xl" >Notifications</h1>
-                <?php foreach ($notifications as $notification): ?>
-                    <div class="container mx-auto mt-8 max-w-sm hover:transform hover:scale-110 transition-transform duration-300 ease-in-out">
-                        <div class="bg-black rounded-lg shadow-md p-4">
-                            <div class="flex items-center">
-                                <div class="rounded-full bg-blue-500 p-2">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm-1 13h2v2h-2zm0-4h2v6h-2z"></path>
-                                    </svg>
-                                </div>
-                                <div class="ml-3">
-                                    <p class="text-sm font-medium text-white hover:underline cursor-pointer"><?php echo $notification['sender'] ?> </p>
-                                    <p class="text-xs text-gray-600"><?php echo $notification['text'] ?></p>
+                <!-- Notification Links -->
+                <div class="p-4 my-2 notif">
+                    <h1 class="text-white text-2xl">Notifications</h1>
+                    <?php foreach ($notifications as $notification): ?>
+                        <div class="container mx-auto mt-8 max-w-sm hover:transform hover:scale-110 transition-transform duration-300 ease-in-out">
+                            <div class="bg-black rounded-lg shadow-md p-4">
+                                <div class="flex items-center">
+                                    <div class="rounded-full bg-blue-500 p-2">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm-1 13h2v2h-2zm0-4h2v6h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-sm font-medium text-white hover:underline cursor-pointer"><?php echo $notification['sender'] ?> </p>
+                                        <p class="text-xs text-gray-600"><?php echo $notification['text'] ?></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            
         </div>
 
         <!-- Main Feed -->

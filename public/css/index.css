@@ -58,3 +58,9 @@ a{
 .like {
     color: #EB608F;
 }
+
+.edit {
+    background-color: #26292A;
+    border: 2px solid #26292A;
+    border-radius:  30px;
+}
