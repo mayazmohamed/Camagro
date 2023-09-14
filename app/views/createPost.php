@@ -67,7 +67,7 @@ $notifications = [
             </button>
             <div id="menu" class="hidden lg:block space-x-4">
                 <?php if ($userProfile['username']) {
-                    echo "<a href=\"app/views/settings.php\" class=\"\">Settings</a>";
+                    echo "<a href=\"settings.php\" class=\"\">Settings</a>";
                     echo "<a href=\"#\" class=\"\">New Post</a>";
                     echo "<a href=\"#\" class=\"\">Logout</a>";
                 } else {
@@ -140,7 +140,7 @@ $notifications = [
                             <input type="file" name="image" id="image" accept="image/*"
                                 class="border rounded-lg p-2 w-full">
                         </div>
-                        <button type="submit"
+                        <button type="submit" id="upload"
                             class="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600 text-white underline">Upload and
                             Edit</button>
                     </form>

@@ -9,7 +9,7 @@ captureButton.addEventListener('click', async () => {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         const video = document.createElement('video');
-        document.body.appendChild(video);
+        document.canvas.appendChild(video);
         video.srcObject = stream;
         video.play();
 
